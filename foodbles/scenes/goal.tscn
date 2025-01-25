@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvkfqlob6b5nu"]
+
+[ext_resource type="Texture2D" uid="uid://cmsf80ovhd2gj" path="res://sprites/modelos.png" id="1_wu1d4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kbprs"]
+
+[node name="goal" type="Area2D"]
+modulate = Color(1, 1, 0, 1)
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kbprs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wu1d4")
+hframes = 2
+vframes = 2
+frame = 3

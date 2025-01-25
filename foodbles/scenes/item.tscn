@@ -1,11 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://rlgs0mwin4vn"]
 
-[ext_resource type="Texture2D" uid="uid://cmsf80ovhd2gj" path="res://modelos.png" id="1_c7a3x"]
-[ext_resource type="Script" path="res://food.gd" id="1_l5pbt"]
+[ext_resource type="Texture2D" uid="uid://cmsf80ovhd2gj" path="res://sprites/modelos.png" id="1_c7a3x"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_l5pbt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c77tb"]
 
-[node name="food" type="Area2D"]
+[node name="item" type="Area2D"]
+collision_layer = 4
 script = ExtResource("1_l5pbt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -19,4 +20,5 @@ hframes = 2
 vframes = 2
 frame = 2
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
