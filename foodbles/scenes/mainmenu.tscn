@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bejl1e53xuulj"]
+[gd_scene load_steps=4 format=3 uid="uid://bejl1e53xuulj"]
 
-[ext_resource type="Script" path="res://scenes/mainmenu.gd" id="1_lmtc5"]
-[ext_resource type="Texture2D" uid="uid://b5eqj1uvyc2am" path="res://sprites/brz.png" id="2_kl8n3"]
-[ext_resource type="Texture2D" uid="uid://dgejkkb3t6q2x" path="res://sprites/usa.png" id="3_pjs3r"]
-[ext_resource type="Texture2D" uid="uid://bm3y807gmy2ip" path="res://sprites/spin.png" id="4_8onbr"]
+[ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_lmtc5"]
+[ext_resource type="Texture2D" uid="uid://ctljf3u6f8kml" path="res://sprites/vovô.png" id="2_pw6bn"]
+[ext_resource type="Texture2D" uid="uid://dsbtbn2ve6cnr" path="res://sprites/neto.png" id="3_tnhnv"]
 
 [node name="mainmenu" type="Control"]
 layout_mode = 3
@@ -15,101 +14,116 @@ grow_vertical = 2
 script = ExtResource("1_lmtc5")
 
 [node name="Start" type="Button" parent="."]
-visible = false
 layout_mode = 0
-offset_left = 448.0
+offset_left = 384.0
 offset_top = 448.0
-offset_right = 640.0
+offset_right = 704.0
 offset_bottom = 512.0
+theme_override_font_sizes/font_size = 32
 text = "Start"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 layout_mode = 0
 offset_left = 192.0
 offset_top = 64.0
 offset_right = 896.0
 offset_bottom = 128.0
+theme_override_font_sizes/font_size = 32
 text = "Foobbles"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="main" type="VBoxContainer" parent="."]
+[node name="Tips" type="Label" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 576.0
+offset_right = 768.0
+offset_bottom = 640.0
+theme_override_font_sizes/font_size = 16
+text = "Press Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuBox" type="VBoxContainer" parent="."]
 visible = false
 layout_mode = 0
 offset_left = 320.0
-offset_top = 384.0
+offset_top = 320.0
 offset_right = 768.0
 offset_bottom = 512.0
 alignment = 1
 
-[node name="Select Character" type="Button" parent="main"]
+[node name="SelectPlayer" type="Button" parent="MainMenuBox"]
 layout_mode = 2
-text = "Start"
+theme_override_font_sizes/font_size = 32
+text = "Select Player
+"
 
-[node name="Settings" type="Button" parent="main"]
+[node name="ModeBox" type="HBoxContainer" parent="MainMenuBox"]
+visible = false
 layout_mode = 2
+alignment = 1
+
+[node name="1 Player" type="Button" parent="MainMenuBox/ModeBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "1P
+"
+
+[node name="2 P Cooperative" type="Button" parent="MainMenuBox/ModeBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "2P Coop"
+
+[node name="2 P Competitive" type="Button" parent="MainMenuBox/ModeBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "2P VS"
+
+[node name="Return" type="Button" parent="MainMenuBox/ModeBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Return"
+
+[node name="CharacterBox" type="HBoxContainer" parent="MainMenuBox"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="vovo" type="Button" parent="MainMenuBox/CharacterBox"]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Vovô"
+icon = ExtResource("2_pw6bn")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="neto" type="Button" parent="MainMenuBox/CharacterBox"]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Neto"
+icon = ExtResource("3_tnhnv")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Settings" type="Button" parent="MainMenuBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Settings"
 
-[node name="Exit" type="Button" parent="main"]
+[node name="Exit" type="Button" parent="MainMenuBox"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Exit"
-
-[node name="settings" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 320.0
-offset_top = 384.0
-offset_right = 768.0
-offset_bottom = 576.0
-alignment = 1
-
-[node name="Language" type="Button" parent="settings"]
-layout_mode = 2
-text = "Language"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="settings"]
-layout_mode = 2
-alignment = 1
-
-[node name="Brazilian" type="CheckBox" parent="settings/HBoxContainer"]
-layout_mode = 2
-text = "Brazilian"
-icon = ExtResource("2_kl8n3")
-
-[node name="English" type="CheckBox" parent="settings/HBoxContainer"]
-layout_mode = 2
-text = "English"
-icon = ExtResource("3_pjs3r")
-
-[node name="Spanish" type="CheckBox" parent="settings/HBoxContainer"]
-layout_mode = 2
-text = "Spanish"
-icon = ExtResource("4_8onbr")
-
-[node name="Difficult" type="ProgressBar" parent="settings"]
-layout_mode = 2
-
-[node name="Return" type="Button" parent="settings"]
-layout_mode = 2
-text = "Exit"
-
-[node name="selection" type="HBoxContainer" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 320.0
-offset_top = 192.0
-offset_right = 768.0
-offset_bottom = 384.0
-alignment = 1
-
-[node name="Button" type="Button" parent="selection"]
-layout_mode = 2
-text = "Vovô"
-
-[node name="Button2" type="Button" parent="selection"]
-layout_mode = 2
-text = "Neto"
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="main/Select Character" to="." method="_on_select_character_pressed"]
+[connection signal="pressed" from="MainMenuBox/SelectPlayer" to="." method="_on_select_player_pressed"]
+[connection signal="pressed" from="MainMenuBox/ModeBox/1 Player" to="." method="_on__player_pressed"]
+[connection signal="pressed" from="MainMenuBox/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MainMenuBox/Exit" to="." method="_on_exit_pressed"]

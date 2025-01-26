@@ -7,7 +7,7 @@ var loading = false
 
 func _physics_process(delta):
 	rotation -= rotation_speed * (Input.get_action_strength("ui_left") - Input.get_action_strength("ui_right"))
-	var direction = Vector2.DOWN.rotated(rotation)  # Direção baseada na rotação
+	var direction = Vector2.UP.rotated(rotation)  # Direção baseada na rotação
 	velocity = direction * speed  # Define a velocidade
 	move_and_slide()  # Move o player
 	if Input.is_action_pressed("ui_down") and !loading:

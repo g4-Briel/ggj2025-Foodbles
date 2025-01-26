@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://bdacki2el0es0"]
+[gd_scene load_steps=8 format=4 uid="uid://bdacki2el0es0"]
 
 [ext_resource type="PackedScene" uid="uid://coxnt08sq2vp4" path="res://scenes/player.tscn" id="1_41vt7"]
 [ext_resource type="PackedScene" uid="uid://rlgs0mwin4vn" path="res://scenes/item.tscn" id="2_4u6ke"]
 [ext_resource type="Texture2D" uid="uid://cmsf80ovhd2gj" path="res://sprites/modelos.png" id="3_yxxel"]
 [ext_resource type="PackedScene" uid="uid://cvkfqlob6b5nu" path="res://scenes/goal.tscn" id="4_kyq6a"]
+[ext_resource type="PackedScene" uid="uid://cyxiagm617ma7" path="res://scenes/hud.tscn" id="5_yauld"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wfi1x"]
 texture = ExtResource("3_yxxel")
@@ -22,7 +23,7 @@ sources/0 = SubResource("TileSetAtlasSource_wfi1x")
 
 [node name="main" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_41vt7")]
+[node name="player" parent="." instance=ExtResource("1_41vt7")]
 position = Vector2(544, 320)
 collision_mask = 11
 
@@ -54,3 +55,5 @@ tile_set = SubResource("TileSet_21n7n")
 
 [node name="goal" parent="." instance=ExtResource("4_kyq6a")]
 position = Vector2(243, 526)
+
+[node name="hud" parent="." instance=ExtResource("5_yauld")]

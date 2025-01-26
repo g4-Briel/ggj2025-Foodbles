@@ -1,11 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://rlgs0mwin4vn"]
 
-[ext_resource type="Texture2D" uid="uid://cmsf80ovhd2gj" path="res://sprites/modelos.png" id="1_c7a3x"]
 [ext_resource type="Script" path="res://scripts/item.gd" id="1_l5pbt"]
+[ext_resource type="Texture2D" uid="uid://0ykyk435o118" path="res://sprites/food-thekingphoenix.png" id="2_gcnu1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c77tb"]
 
 [node name="item" type="Area2D"]
+z_index = -1
 collision_layer = 4
 script = ExtResource("1_l5pbt")
 
@@ -13,12 +14,15 @@ script = ExtResource("1_l5pbt")
 shape = SubResource("CircleShape2D_c77tb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 1, 1)
 texture_filter = 1
-texture = ExtResource("1_c7a3x")
-hframes = 2
-vframes = 2
-frame = 2
+texture = ExtResource("2_gcnu1")
+hframes = 5
+vframes = 6
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
