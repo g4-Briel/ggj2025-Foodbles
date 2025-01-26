@@ -3,6 +3,7 @@ extends Area2D
 var on_bubble = false
 var root = false
 @onready var player = $"../player"
+@onready var hud = $"../hud"
 
 func _ready():
 	$Sprite2D.frame = randi_range(0,24)
@@ -27,6 +28,12 @@ func _on_area_entered(area):
 	print("colidiu com ", area)
 	player.loading = false
 	queue_free()
+	if area.name == "trash" and root:
+		hud.score += 50
+	if area.name == "table" and !root:
+		hud.score += 100
+	else:
+		hud.score += 10
 	pass # Replace with function body.
 
 

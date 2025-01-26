@@ -1,16 +1,25 @@
 extends Control
 
 var lives = 3
+var score: int = 0
 
 func _ready():
 	$Timer.start()
+	$Timer.wait_time = Global.difficulty * 15
 	$Panel/TextureProgressBar.max_value = $Timer.wait_time
+	if Global.character == preload("res://scenes/player1.tscn"):
+		$Panel/LabelLives/Sprite2D.texture = preload("res://sprites/granp_icon.png")
+	if Global.character == preload("res://scenes/player2.tscn"):
+		$Panel/LabelLives/Sprite2D.texture = preload("res://sprites/grans_icon.png")
 
 
 func _process(delta):
 	$Panel/LabelTimer.text = str(int($Timer.time_left))
 	$Panel/TextureProgressBar.value = int($Timer.time_left)
 	$Panel/LabelLives.text = "x" + str(lives)
+	$Panel/LabelScore.text = str(score)
+
+
 
 
 func _on_settings_pressed():
@@ -23,6 +32,7 @@ func _on_settings_pressed():
 
 func _on_resume_pressed():
 	$Pause.hide()
+	Global.toggle_pause()
 	pass # Replace with function body.
 
 

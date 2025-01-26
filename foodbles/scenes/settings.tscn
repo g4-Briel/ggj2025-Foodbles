@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dudwkygnnfoa"]
+[gd_scene load_steps=6 format=3 uid="uid://dudwkygnnfoa"]
 
-[ext_resource type="Script" path="res://scenes/settings.gd" id="1_72l7i"]
+[ext_resource type="Script" path="res://scripts/settings.gd" id="1_72l7i"]
 [ext_resource type="Texture2D" uid="uid://b5eqj1uvyc2am" path="res://sprites/brz.png" id="1_euu4e"]
 [ext_resource type="Texture2D" uid="uid://dgejkkb3t6q2x" path="res://sprites/usa.png" id="2_toblu"]
 [ext_resource type="Texture2D" uid="uid://bm3y807gmy2ip" path="res://sprites/spin.png" id="3_d0i4j"]
+[ext_resource type="Script" path="res://scripts/return.gd" id="5_77ruh"]
 
 [node name="settings" type="Control"]
 layout_mode = 3
@@ -126,7 +127,9 @@ text = "Credits"
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Return"
+script = ExtResource("5_77ruh")
 
 [connection signal="value_changed" from="SettingsBox/HBoxContainer2/Difficult" to="." method="_on_difficult_value_changed"]
 [connection signal="value_changed" from="SettingsBox/HBoxContainer3/Volume" to="." method="_on_volume_value_changed"]
-[connection signal="pressed" from="SettingsBox/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="SettingsBox/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="SettingsBox/Return" to="SettingsBox/Return" method="_on_pressed"]

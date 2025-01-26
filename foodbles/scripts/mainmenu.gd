@@ -5,11 +5,11 @@ extends Control
 @onready var settings_button = $VBoxContainer/Settings
 @onready var exit_button = $VBoxContainer/Exit
 
-
 func _ready():
 	# Conectando os sinais de clique dos botões
 	$MainMenuBox.hide()
 	$Start.show()
+	$Theme.play()
 
 
 # Função chamada ao pressionar o botão "Iniciar Jogo"
@@ -17,6 +17,7 @@ func _on_start_pressed():
 	print("Iniciando o jogo...")
 	$Start.hide()
 	$MainMenuBox.show()
+	
 
 
 # Função chamada ao pressionar o botão "Configurações"
@@ -40,4 +41,18 @@ func _on__player_pressed():
 
 func _on_select_player_pressed():
 	$MainMenuBox/CharacterBox.show()
+	pass # Replace with function body.
+
+
+func _on_vovo_pressed():
+	Global.character = preload("res://scenes/player1.tscn")
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	print("Vovo")
+	pass # Replace with function body.
+
+
+func _on_neto_pressed():
+	Global.character = preload("res://scenes/player2.tscn")
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	print("Neto")
 	pass # Replace with function body.

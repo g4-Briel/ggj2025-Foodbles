@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwut64rpkfv5o"]
+
+[ext_resource type="Script" path="res://scripts/player2.gd" id="1_m2dn7"]
+[ext_resource type="SpriteFrames" uid="uid://d4g3kifcqtsag" path="res://sprites/anim.tres" id="2_1d1ov"]
+[ext_resource type="AudioStream" uid="uid://cot2ko7wqlbrr" path="res://sounds/grans_bite_voice.wav" id="3_d4snb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vgx6b"]
+radius = 16.0
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_m2dn7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vgx6b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1.43051e-06, -1.43051e-06)
+sprite_frames = ExtResource("2_1d1ov")
+animation = &"grans"
+
+[node name="Bite" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_d4snb")
